@@ -44,12 +44,12 @@ print(R2_score)
 
 #beta_0
 intercept=model.intercept_
-print('Estimated y-intercept for the regression-line is {}'.format(intercept))
+print('Estimated y-intercept (beta_0) for the regression-line is {}'.format(intercept))
 #beta_1
 slope=model.coef_
-print('Estimated slope for the regression line is {}'.format(slope))
+print('Estimated slope (beta_1) for the regression line is {}'.format(slope))
 
-#visualization of the predicted regression-line compared to the original data
+#visualization of the predicted regression-line compared to the train-data
 '''
 plt.scatter(x, y, color='blue')
 plt.plot(x, model.predict(x),color='yellow')
