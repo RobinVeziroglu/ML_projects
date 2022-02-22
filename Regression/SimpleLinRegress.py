@@ -27,6 +27,11 @@ df_train=df_train.dropna(how='any',axis=0)
 #to predict the response variably y.
 #y_i=beta_0+beta_1*x_i
 
+#quick overview/visualization of the data
+#df_train.describe()
+#plt.scatter(df_train.x,df_train.y)
+#exhibits a positive correlation
+
 x=np.array([df_train.x.to_list()]).reshape(-1,1)
 y=np.array([df_train.y.to_list()]).reshape(-1,1)
 
@@ -37,8 +42,18 @@ model.fit(x,y)
 R2_score=model.score(x, y) # coefficient of determination R^2
 print(R2_score)
 
+#beta_0
 intercept=model.intercept_
 print('Estimated y-intercept for the regression-line is {}'.format(intercept))
-
+#beta_1
 slope=model.coef_
 print('Estimated slope for the regression line is {}'.format(slope))
+
+x_test=np.array([df_test.x.to_list()]).reshape(-1,1)
+y_test=np.array([df_test.y.to_list()]).reshape(-1,1)
+
+y_pred=model.predict(x_test)
+#alternative to above: y_pred=intercept+slope*x_test
+plt.scatter(x_test,y_test)
+
+
