@@ -63,6 +63,13 @@ y_test=np.array([df_test.y.to_list()]).reshape(-1,1)
 
 y_pred=model.predict(x_test)
 #alternative to above: y_pred=intercept+slope*x_test
-#plt.scatter(x_test,y_test)
+
+
+plt.scatter(x_test, y_test, color='blue')
+plt.plot(x_test, model.predict(x_test),color='yellow')
+plt.xlabel('x_test')
+plt.ylabel('y_test')
+plt.show()
+
 
 
